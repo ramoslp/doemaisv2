@@ -4,11 +4,10 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Login - DoeMais</title>
+	<title>DoeMais</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://getbootstrap.com/docs/3.3/examples/signin/signin.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css">
+	
 </head>
 <body>
 	<div class="container">

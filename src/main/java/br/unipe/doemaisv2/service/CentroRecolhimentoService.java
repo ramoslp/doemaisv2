@@ -11,6 +11,4 @@ public class CentroRecolhimentoService extends AbstractService<CentroRecolhiment
 		return new CentroRecolhimentoDAO(manager);
 	}
 
-	
-
 }

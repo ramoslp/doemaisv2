@@ -22,7 +22,15 @@
       			<li><a href="${contextPath}/">Home</a></li>
       			<!-- VERIFICA SE O USUÁRIO É ADMIN -->
       			<c:if test="${usuarioLogado.login eq 'admin'}">
-      			<li><a href="${contextPath}/executa?action=ListUsuario">Usuários</a></li>
+      			<li class="dropdown">
+        			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Doadores
+        				<span class="caret"></span>
+        			</a>
+        			<ul class="dropdown-menu">
+          				<li><a href="${contextPath}/executa?action=ListDoador">Lista</a></li>
+          				<li><a href="${contextPath}/executa?action=FormDoador">Cadastro</a></li>
+        			</ul>
+      			</li>
       			<li class="dropdown">
         			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Doações
         				<span class="caret"></span>

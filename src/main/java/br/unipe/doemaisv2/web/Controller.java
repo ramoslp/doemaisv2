@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns="/executa")
 public class Controller extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");

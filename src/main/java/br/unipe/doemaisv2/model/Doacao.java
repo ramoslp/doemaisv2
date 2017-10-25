@@ -1,17 +1,12 @@
 package br.unipe.doemaisv2.model;
 
-import java.util.Calendar;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Doacao extends AbstractEntity {
 
-	@Temporal(TemporalType.DATE)
-	private Calendar data;
+	private String dataDoacao;
 
 	@ManyToOne
 	private Doador doador;
@@ -19,12 +14,12 @@ public class Doacao extends AbstractEntity {
 	@ManyToOne
 	private CentroRecolhimento local;
 
-	public Calendar getData() {
-		return data;
+	public String getDataDoacao() {
+		return dataDoacao;
 	}
 
-	public void setData(Calendar data) {
-		this.data = data;
+	public void setDataDoacao(String dataDoacao) {
+		this.dataDoacao = dataDoacao;
 	}
 
 	public Doador getDoador() {

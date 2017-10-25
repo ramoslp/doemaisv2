@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="br.unipe.doemaisv2.model.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +21,15 @@
       			<li><a href="${contextPath}/">Home</a></li>
       			<!-- VERIFICA SE O USUÁRIO É ADMIN -->
       			<c:if test="${usuarioLogado.login eq 'admin'}">
-      			<li><a href="${contextPath}/executa?action=ListUsuario">Usuários</a></li>
+      			<li class="dropdown">
+        			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Doadores
+        				<span class="caret"></span>
+        			</a>
+        			<ul class="dropdown-menu">
+          				<li><a href="${contextPath}/executa?action=ListDoador">Lista</a></li>
+          				<li><a href="${contextPath}/executa?action=FormDoador">Cadastro</a></li>
+        			</ul>
+      			</li>
       			<li class="dropdown">
         			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Doações
         				<span class="caret"></span>
@@ -73,21 +80,28 @@
 	</nav>
 
 	<div class="container">
-	<h3>Adicionar Campanha</h3>
-		<form action="executa?action=AddCampanha" method="POST">
+	
+		<form action="executa?action=AddCampanha" method="POST" role="form">
+			<h3>Adicionar Campanha</h3><br>
 			<input type="hidden" name="criador" value="${usuarioLogado.login}">
-			Nome:<br>
-			<input type="text" name="nome" required="required" /><br>
-			Data:<br>
-			<input type="text" name="data" required="required" /><br>
-			Local:<br>
-			<select name="local">
-				<c:forEach items="${centros}" var="centro">
-				<option value="${centro.id}">${centro.nome}</option>
-				</c:forEach>			
-			</select>
-			<br><br>
-			<input type="submit" value="Adicionar" />
+			<div class="form-group">
+				<label for="nome">Nome</label>
+				<input type="text" name="nome" class="form-control" style="width:300px" required="required" />
+			</div>
+			<div class="form-group">
+				<label for="data">Data</label>
+				<input type="text" name="data" class="form-control" style="width:300px" required="required" />
+			</div>
+			<div class="form-group">
+				<label for="local">Local</label>
+				<select name="local" class="form-control" style="width:300px">
+					<c:forEach items="${centros}" var="centro">
+					<option value="${centro.id}">${centro.nome}</option>
+					</c:forEach>			
+				</select>
+			</div>
+			<br>
+			<input type="submit" class="btn btn-default" value="Adicionar" />
 		</form>
 	</div>
 </body>

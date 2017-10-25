@@ -26,7 +26,7 @@ public class CampanhaDAO {
 	}
 
 	public List<Campanha> list() {
-		Query query = manager.createQuery("from " + getEntityClass().getName());
+		Query query = manager.createQuery("from " + getEntityClass().getName() + " order by datacampanha");
 
 		@SuppressWarnings("unchecked")
 		List<Campanha> list = query.getResultList();

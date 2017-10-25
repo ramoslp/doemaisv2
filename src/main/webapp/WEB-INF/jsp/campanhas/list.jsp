@@ -21,7 +21,15 @@
       			<li><a href="${contextPath}/">Home</a></li>
       			<!-- VERIFICA SE O USUÁRIO É ADMIN -->
       			<c:if test="${usuarioLogado.login eq 'admin'}">
-      			<li><a href="${contextPath}/executa?action=ListUsuario">Usuários</a></li>
+      			<li class="dropdown">
+        			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Doadores
+        				<span class="caret"></span>
+        			</a>
+        			<ul class="dropdown-menu">
+          				<li><a href="${contextPath}/executa?action=ListDoador">Lista</a></li>
+          				<li><a href="${contextPath}/executa?action=FormDoador">Cadastro</a></li>
+        			</ul>
+      			</li>
       			<li class="dropdown">
         			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Doações
         				<span class="caret"></span>
@@ -81,7 +89,9 @@
 					<th>Data</th>
 					<th>Local</th>
 					<th>Criada por</th>
+					<c:if test="${usuarioLogado.login eq 'admin'}">
 					<th>Ações</th>
+					</c:if>
 				</tr>
 			</thead>
 			<tbody>
@@ -92,6 +102,7 @@
 					<td>${campanha.data}</td>
 					<td>${campanha.local.nome}</td>
 					<td>${campanha.criador.login}</td>
+					<c:if test="${usuarioLogado.login eq 'admin'}">
 					<td>
 						<a href="executa?action=EditCampanha&id=${campanha.id}">
 							<span class="glyphicon glyphicon-pencil"></span>
@@ -100,6 +111,7 @@
 							<span class="glyphicon glyphicon-remove"></span>
 						</a>
 					</td>
+					</c:if>
 				</tr>
 			</c:forEach>
 			</tbody>

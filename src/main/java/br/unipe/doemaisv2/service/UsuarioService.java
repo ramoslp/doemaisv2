@@ -1,5 +1,8 @@
 package br.unipe.doemaisv2.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,6 +22,21 @@ public class UsuarioService {
 		}finally {
 			manager.close();
 		}
+	}
+
+	public List<Usuario> list() {
+		List<Usuario> list = new ArrayList<>();
+		EntityManager manager = fac.createEntityManager();
+		try {
+			manager.getTransaction().begin();
+			list = new UsuarioDAO(manager).list();
+			manager.getTransaction().commit();
+		}catch (Exception e) {
+			manager.getTransaction().rollback();
+		}finally {
+			manager.close();
+		}
+		return list;
 	}
 	
 }

@@ -1,24 +1,17 @@
 package br.unipe.doemaisv2.model;
 
-import java.util.Calendar;
-import java.util.Observable;
-import java.util.Observer;
-
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
-public class Doador extends AbstractEntity implements Observer {
+public class Doador extends AbstractEntity {
 
 	private String nome;
 
 	private String cpf;
 
-	@Temporal(TemporalType.DATE)
-	private Calendar dataNascimento;
+	private String dataNasc;
 
 	private String tipoSanguineo;
 
@@ -47,12 +40,12 @@ public class Doador extends AbstractEntity implements Observer {
 		this.cpf = cpf;
 	}
 
-	public Calendar getDataNascimento() {
-		return dataNascimento;
+	public String getDataNascimento() {
+		return dataNasc;
 	}
 
-	public void setDataNascimento(Calendar dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNasc = dataNascimento;
 	}
 
 	public String getTipoSanguineo() {
@@ -85,11 +78,6 @@ public class Doador extends AbstractEntity implements Observer {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		
 	}
 
 }
